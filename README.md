@@ -12,3 +12,21 @@ ejem: @GetMapping("/hola/{nombre}")
     }
 
 @RequestParam -> parametro de consulta - ejem: saludo?nombre=Luna
+
+
+LISTASS
+-importar librerias import java.util.ArrayList; import java.util.List;
+-crear la lista de objetos
+List<Producto> productos = new ArrayList<>();
+
+-agregar objetos a la lista
+productos.add(new Producto(1, "Laptop", 2500.00));
+
+-tamaño de la lists
+productos.size();
+
+-obtener un elemento
+productos.get(0);
+
+-eliminar un elemento
+productos.remove(1);
