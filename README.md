@@ -2,6 +2,20 @@
 
 @RestController -> indica que la clase se encargará de recibir y repsonder solicitudes HTTP
 
+@Service -> indica que la clase contiene lógica de negocio
+
+              Spring Boot
+                   │
+                   ↓
+               Controller
+                   │
+                   ↓
+                Service
+                   │
+                   ↓
+             Lista de datos
+
+
 @GetMapping("/ ") -> peticion que ejecuta un método
 
 @PathVariable -> /{variable}) @PathVaribale String variable 
@@ -12,6 +26,10 @@ ejem: @GetMapping("/hola/{nombre}")
     }
 
 @RequestParam -> parametro de consulta - ejem: saludo?nombre=Luna
+@GetMapping("/saludo")
+    public String saludo(@RequestParam String nombre){
+        return "Hola " + nombre;
+    }
 
 
 LISTASS
@@ -30,3 +48,6 @@ productos.get(0);
 
 -eliminar un elemento
 productos.remove(1);
+
+
+comparar String -> producto.getNombre().equals(nombre)

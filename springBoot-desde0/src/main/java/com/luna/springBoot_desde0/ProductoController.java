@@ -2,7 +2,6 @@ package com.luna.springBoot_desde0;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,32 +11,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //usando JSON
 public class ProductoController {
-    
-    //endpoint dinamico usando variable
-    @GetMapping("/producto/{id}")
-    //objeto de tipo Producto
-    public Producto producto(@PathVariable int id){
 
-        //LOGICA
-        if(id==1){
-            return new Producto(1, "Laptop", 2500.00);
-        }else{
-            return new Producto(2, "Mouse", 800.00);
-        }
-        
+    //constante de tipo ProductoService 
+    private final ProductoService productoService;
+
+    //CONSTRUCTOR
+    public ProductoController(ProductoService productoService){
+        this.productoService = productoService;
     }
 
-    //LISTA DE OBJETOS
+    //NUEVO GET QUE TRABAJA CON LA CLASE SERVICE
     @GetMapping("/productos")
     public List<Producto> productos(){
-
-        List<Producto> productos = new ArrayList<>();
-
-        productos.add(new Producto(1, "Laptop", 2500.00));
-        productos.add(new Producto(2, "Mouse", 80.00));
-        productos.add(new Producto(3, "Teclado", 120.00));
-
-        return productos;
-
+        return productoService.obtenerProductos();
     }
+
+    //NUEVO ENDPOINT PARA EL METODO2
+    @GetMapping("/producto/{id}")
+    public Producto producto(@PathVariable int id){
+        return productoService.obtenerProductoPorID(id);
+    }
+
+    //ENPOINT PARA EL METODO3
+    @GetMapping("/producto/nombre/{nombre}")
+    public Producto producto(@PathVariable String nombre){
+        return productoService.obtenerProductoPorNombre(nombre);
+    }
+
 }
