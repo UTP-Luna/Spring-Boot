@@ -1,11 +1,12 @@
 package com.luna.springBoot_desde0;
 
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 
@@ -36,6 +37,12 @@ public class ProductoController {
     @GetMapping("/producto/nombre/{nombre}")
     public Producto producto(@PathVariable String nombre){
         return productoService.obtenerProductoPorNombre(nombre);
+    }
+
+    //PRIMER POST
+    @PostMapping("/productos")
+    public Producto crearProducto(@RequestBody Producto producto){
+        return productoService.crearProducto(producto);
     }
 
 }

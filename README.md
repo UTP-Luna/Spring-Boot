@@ -1,4 +1,6 @@
 # Spring-Boot
+GET - obtener informacion
+POST - enviar informacion 
 
 @RestController -> indica que la clase se encargará de recibir y repsonder solicitudes HTTP
 
@@ -31,6 +33,12 @@ ejem: @GetMapping("/hola/{nombre}")
         return "Hola " + nombre;
     }
 
+@RequestBody -> convierte JSON en objeto
+@PostMapping("/productos")
+    public Producto crearProducto(@RequestBody Producto producto){
+        return producto;
+    }
+
 
 LISTASS
 -importar librerias import java.util.ArrayList; import java.util.List;
@@ -49,5 +57,5 @@ productos.get(0);
 -eliminar un elemento
 productos.remove(1);
 
-
 comparar String -> producto.getNombre().equals(nombre)
+
