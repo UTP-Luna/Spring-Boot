@@ -20,7 +20,7 @@ POST - enviar informacion
 
 @GetMapping("/ ") -> peticion que ejecuta un método
 
-@PathVariable -> /{variable}) @PathVaribale String variable 
+@PathVariable -> /{variable} @PathVaribale String variable 
 
 ejem: @GetMapping("/hola/{nombre}")
     public String hola(@PathVariable String nombre){
@@ -39,6 +39,19 @@ ejem: @GetMapping("/hola/{nombre}")
         return producto;
     }
 
+@DeleteMapping("/") -> void
+ productos.removeIf(producto -> producto.getId() == id);
+
+@PutMapping -> @PathVariable y @RequestBody
+ p.setNombre(producto.getNombre());
+
+CÓDIGOS HTTP
+Código	Significado	                Ejemplo
+200	        OK	                Producto encontrado
+201	      Created	            Producto creado
+400	    Bad Request     	    Petición incorrecta
+404	    Not Found	            Producto inexistente
+500	    Error del servidor	    Error inesperado
 
 LISTASS
 -importar librerias import java.util.ArrayList; import java.util.List;

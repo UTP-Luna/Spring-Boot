@@ -49,7 +49,24 @@ public class ProductoService {
     //METODO PARA EL POST
     public Producto crearProducto(Producto producto){
         productos.add(producto);
-
         return producto;
+    }
+
+    //METODO PARA EL DELETE
+    public void eliminarProducto(int id){
+        productos.removeIf(producto -> producto.getId() == id);
+    }
+
+    //METODO PARA PUT
+    public Producto actualizarProducto(int id, Producto producto){
+        for(Producto p : productos){
+            if(p.getId()==id){
+                p.setNombre(producto.getNombre());
+                p.setPrecio(producto.getPrecio());
+
+                return p;
+            } 
+        }
+        return null;
     }
 }

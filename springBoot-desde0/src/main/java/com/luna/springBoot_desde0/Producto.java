@@ -26,4 +26,13 @@ public class Producto {
     public double getPrecio() {
         return precio;
     }
+
+    //sets
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 }
